@@ -1,7 +1,8 @@
 # Ghi chú phân tích · Day 04
 
-Họ và tên: Nguyễn Duy Mạnh
-MSSV: 2A202603806
+- Họ và tên: Nguyễn Duy Mạnh
+- MSSV: 2A202603806
+- Model sử dụng trong toàn bộ lab: GPT 6 Luna
 
 ## 1. Case được chọn
 
@@ -77,3 +78,13 @@ Agent chỉ gọi get_incident_details để kiểm tra incident t89g2q1800fr. T
   kết quả cải thiện ổn định.
 - Kiểm tra URL chỉ xác nhận câu trả lời có chứa nguồn đã quan sát, không chứng
   minh mọi thông tin trong câu trả lời đều đúng hoặc được nguồn hỗ trợ.
+
+## 6. Bonus
+
+- Agent sử dụng schemas và system prompt từ bộ tools bonus, hỗ trợ 5 nhà cung cấp.
+- Test bonus offline đạt 3/3; eval đạt 99,2/100 trên đủ 10 case,
+  tương đương 14,88/15 điểm tham khảo. Kết quả lưu trong `eval_bonus.json`.
+- Trong lần eval này, agent xử lý được phân trang, lỗi tham số, retry khi gặp
+  429 và dữ liệu nhiễu; các kết quả lỗi được đưa lại cho model.
+- Giới hạn: eval dùng snapshot và tình huống mô phỏng. Chưa kiểm chứng retry
+  với HTTP 429 thật hoặc độ ổn định khi chạy live. Điểm judge chỉ mang tính tham khảo vì agent và judge là cùng 1 LLM.

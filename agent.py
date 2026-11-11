@@ -37,7 +37,7 @@ def run_agent(question, provider, tools, max_steps=6):
 
     for step in range(1, max_steps + 1):
         try:
-            result = provider.complete(messages, SCHEMAS)
+            result = provider.complete(messages, schemas)
         except Exception as exc:
             trace.append({
                 'event': 'error',
